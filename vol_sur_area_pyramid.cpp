@@ -21,24 +21,25 @@ float calculateVolume(float base, float height) {
 }
 
 int main() {
-    float base, height;
+    std::string baseAsString, heightAsString;
 
     // Get user input
     try {
+        float baseAsFloat, heightAsFloat;
         std::cout << "Enter the base of the Square Pyramid: ";
-        std::cin >> base;
+        std::cin >> baseAsFloat;
         std::cout << "Enter the height of the Square Pyramid: ";
-        std::cin >> height;
-    } catch (const std::invalid_argument&) {
-        std::cout << "Invalid input. Please enter a valid number." << std::endl;
-}
+        std::cin >> heightAsFloat;
     // Call functions
-    float surface_area = calculateSurfaceArea(base, height);
-    float volume = calculateVolume(base, height);
+    float surface_area = calculateSurfaceArea(baseAsFloat, heightAsFloat);
+    float volume = calculateVolume(baseAsFloat, heightAsFloat);
 
     // Display results
     std::cout << "The surface area of the Square Pyramid is: "
     << std::fixed << std::setprecision(2) << surface_area << '\n';
     std::cout << "The volume of the Square Pyramid is: "
-    << std::fixed << std::setprecision(2) << volume << '\n';
+              << std::fixed << std::setprecision(2) << volume << '\n';
+    } catch (const std::invalid_argument&) {
+        std::cout << "Invalid input. Please enter a valid number." << std::endl;
+    }
 }
